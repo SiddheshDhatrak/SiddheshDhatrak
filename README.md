@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=300&section=header&text=Hi%20there,%20I'm%20Siddhesh!%20👋&fontSize=50&animation=fadeIn&fontAlignY=38&desc=Full%20Stack%20Engineer%20|%20MERN%20|%20Mobile%20App%20Dev&descAlignY=51&descAlign=62" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=300&section=header&text=Hi%20there,%20I'm%20Mayur!%20👋&fontSize=50&animation=fadeIn&fontAlignY=38&desc=Full%20Stack%20Engineer%20|%20MERN%20|%20Mobile%20App%20Dev&descAlignY=51&descAlign=62" />
   
   <br />
 
@@ -69,32 +69,32 @@
 
 ---
 
-### 📊 GitHub Stats
+### 📊 GitHub Stats & Rankings
 
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=SiddheshDhatrak&show_icons=true&theme=tokyonight&hide_border=true" alt="GitHub Stats" width="48%" />
-  <img src="https://streak-stats.demolab.com/?user=SiddheshDhatrak&theme=tokyonight&hide_border=true" alt="GitHub Streak" width="48%" />
+  <img src="https://github-readme-stats.vercel.app/api?username=Mayur-Pagote&show_icons=true&theme=tokyonight&hide_border=true" alt="GitHub Stats" width="48%" />
+  <img src="https://streak-stats.demolab.com/?user=Mayur-Pagote&theme=tokyonight&hide_border=true" alt="GitHub Streak" width="48%" />
 </div>
 <br/>
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=SiddheshDhatrak&layout=compact&theme=tokyonight&hide_border=true" alt="Top Languages" width="48%" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Mayur-Pagote&layout=compact&theme=tokyonight&hide_border=true" alt="Top Languages" width="48%" />
+</div>
+
+<br/>
+<div align="center">
+  <img height="180em" src="https://leetcard.jacoblin.cool/Mayur-Pagote?ext=contest&theme=dark" alt="LeetCode Stats" />
+  <img height="180em" src="https://codeforces-readme-stats.vercel.app/api/card?username=Mayur-Pagote&theme=github_dark&disable_animations=false&show_icons=true&force_username=true" alt="Codeforces Stats" />
 </div>
 
 ---
 
-### 🐍 Contribution Activity
-
-*Note: This animated snake requires setting up a GitHub Action to generate the SVG. Check out the [snk action repository](https://github.com/Platane/snk) for instructions.*
+### 🎨 Contribution Activity
 
 <div align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/SiddheshDhatrak/SiddheshDhatrak/output/github-contribution-grid-snake-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/SiddheshDhatrak/SiddheshDhatrak/output/github-contribution-grid-snake.svg">
-    <img alt="github contribution grid snake animation" src="https://raw.githubusercontent.com/SiddheshDhatrak/SiddheshDhatrak/output/github-contribution-grid-snake.svg">
-  </picture>
+  <img src="https://ssr-contributions-svg.vercel.app/_/Mayur-Pagote?chart=3dbar&gap=0.6&scale=2&gradient=true&flatten=0&animation=mess&animation_duration=6&animation_loop=true&format=svg&weeks=50&theme=purple&widget_size=large&colors=FF6F61,FF9671,FFC15E,72F2EB,1282A2,FCE2DB,FAD4D8,DBDFFD&dark=true" alt="Contribution Graph" />
 </div>
 
 <br/>
 <div align="center">
-  <img src="https://komarev.com/ghpvc/?username=SiddheshDhatrak&color=blueviolet&style=flat-square&label=PROFILE+VIEWS" alt="Profile Views" />
+  <img src="https://komarev.com/ghpvc/?username=Mayur-Pagote&color=blueviolet&style=flat-square&label=PROFILE+VIEWS" alt="Profile Views" />
 </div>

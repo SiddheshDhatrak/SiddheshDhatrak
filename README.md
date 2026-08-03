@@ -1,9 +1,9 @@
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=300&section=header&text=Hi%20there,%20I'm%20Siddhesh!%20👋&fontSize=50&animation=fadeIn&fontAlignY=38&desc=Full%20Stack%20Engineer%20|%20MERN%20|%20Mobile%20App%20Dev&descAlignY=51&descAlign=62" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=300&section=header&text=Hi%20there,%20I'm%20Siddhesh!%20👋&fontSize=50&animation=fadeIn&fontAlignY=38&desc=Full%20Stack%20Engineer%20|%20MERN%20|%20Aspiring%20AIML%20|%20Beginner%20Cybersec&descAlignY=51&descAlign=62" />
   
   <br />
 
-  <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=24&pause=1000&color=00F0FF&center=true&vCenter=true&width=600&height=50&lines=Full+Stack+MERN+Engineer;React+Native+%26+Flutter+Developer;Docker+%26+DevOps+Enthusiast;Always+learning+new+tech!" alt="Typing SVG" /></a>
+  <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=24&pause=1000&color=00F0FF&center=true&vCenter=true&width=600&height=50&lines=Full+Stack+MERN+Engineer;React+Native+%26+Flutter+Developer;Aspiring+AIML+%26+Beginner+Cybersec;Always+learning+new+tech!" alt="Typing SVG" /></a>
 
   <br />
 
@@ -12,11 +12,11 @@
     <a href="https://linkedin.com/in/YOUR_LINKEDIN_USERNAME" target="_blank">
       <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
     </a>
-    <a href="https://twitter.com/YOUR_TWITTER_USERNAME" target="_blank">
-      <img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" alt="Twitter" />
+    <a href="https://leetcode.com/u/cyclotron24/" target="_blank">
+      <img src="https://img.shields.io/badge/LeetCode-FFA116?style=for-the-badge&logo=LeetCode&logoColor=black" alt="LeetCode" />
     </a>
-    <a href="https://YOUR_PORTFOLIO_URL.com" target="_blank">
-      <img src="https://img.shields.io/badge/Portfolio-255E63?style=for-the-badge&logo=Web&logoColor=white" alt="Portfolio" />
+    <a href="https://codeforces.com/profile/cyclotron24" target="_blank">
+      <img src="https://img.shields.io/badge/Codeforces-1F8ACB?style=for-the-badge&logo=Codeforces&logoColor=white" alt="Codeforces" />
     </a>
   </p>
 </div>
@@ -25,12 +25,12 @@
 
 ### 👨‍💻 About Me
 
-- 🔭 I’m currently working on **[Project Name or Company]**
-- 🌱 I’m currently learning **[Something New, e.g., System Design, Kubernetes, Rust]**
-- 👯 I’m looking to collaborate on **[Open Source Projects or App Ideas]**
+- 🔭 I’m currently working on **Unified Org Workspace**
+- 🌱 I’m currently learning **System Design**
+- 👯 I’m looking to collaborate on **Full stack + AI Projects**
 - 💬 Ask me about **React, Node.js, Flutter, React Native, Docker**
-- 📫 How to reach me: **[Your Email Address]**
-- ⚡ Fun fact: **[Add a fun fact about you!]**
+- 📫 How to reach me: **siddheshdhatrak06@gmail.com**
+- ⚡ Fun fact: **Am a full time developer and part time competitive programmer**
 
 ---
 

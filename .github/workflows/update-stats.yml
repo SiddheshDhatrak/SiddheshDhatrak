@@ -8,7 +8,7 @@ on:
   # Allow manual trigger
   workflow_dispatch:
 
-  # Run on push to main/master
+  # Run on push to main/master (only when this workflow changes)
   push:
     branches:
       - main
@@ -29,44 +29,39 @@ jobs:
       - name: Create stats directory
         run: mkdir -p stats
 
-      - name: Fetch GitHub Stats SVG
-        run: |
-          for i in 1 2 3; do
-            curl -s -o stats/github-stats.svg \
-              "https://github-readme-stats.vercel.app/api?username=SiddheshDhatrak&show_icons=true&theme=tokyonight&hide_border=true" \
-              && break || sleep 10
-          done
-          # Validate that we got a valid SVG
-          if ! head -c 100 stats/github-stats.svg | grep -q '<svg'; then
-            echo "::warning::GitHub Stats SVG may be invalid, retrying with alternate instance..."
-            curl -s -o stats/github-stats.svg \
-              "https://github-readme-stats.vercel.app/api?username=SiddheshDhatrak&show_icons=true&theme=tokyonight&hide_border=true"
-          fi
+      # Generate GitHub Stats card using the dedicated action (uses GITHUB_TOKEN, no external API)
+      - name: Generate GitHub Stats card
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: stats
+          options: username=SiddheshDhatrak&show_icons=true&theme=tokyonight&hide_border=true
+          path: stats/github-stats.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Fetch Top Languages SVG
-        run: |
-          for i in 1 2 3; do
-            curl -s -o stats/top-languages.svg \
-              "https://github-readme-stats.vercel.app/api/top-langs/?username=SiddheshDhatrak&layout=compact&theme=tokyonight&hide_border=true" \
-              && break || sleep 10
-          done
-          if ! head -c 100 stats/top-languages.svg | grep -q '<svg'; then
-            echo "::warning::Top Languages SVG may be invalid, retrying..."
-            curl -s -o stats/top-languages.svg \
-              "https://github-readme-stats.vercel.app/api/top-langs/?username=SiddheshDhatrak&layout=compact&theme=tokyonight&hide_border=true"
-          fi
+      # Generate Top Languages card
+      - name: Generate Top Languages card
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: top-langs
+          options: username=SiddheshDhatrak&layout=compact&theme=tokyonight&hide_border=true
+          path: stats/top-languages.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
 
+      # Fetch GitHub Streak SVG (streak-stats doesn't have a native action, use curl with retries)
       - name: Fetch GitHub Streak SVG
         run: |
-          for i in 1 2 3; do
-            curl -s -o stats/github-streak.svg \
+          for i in 1 2 3 4 5; do
+            curl -s -f -o stats/github-streak.svg \
               "https://streak-stats.demolab.com/?user=SiddheshDhatrak&theme=tokyonight&hide_border=true" \
-              && break || sleep 10
+              && break
+            echo "Attempt $i failed, retrying in 15s..."
+            sleep 15
           done
-          if ! head -c 100 stats/github-streak.svg | grep -q '<svg'; then
-            echo "::warning::Streak SVG may be invalid, retrying..."
-            curl -s -o stats/github-streak.svg \
-              "https://streak-stats.demolab.com/?user=SiddheshDhatrak&theme=tokyonight&hide_border=true"
+          # Check if we got a valid streak SVG (not an error page)
+          if head -c 500 stats/github-streak.svg | grep -q 'Failed to retrieve'; then
+            echo "::warning::Streak SVG contains an error message, trying alternate URL..."
+            curl -s -f -o stats/github-streak.svg \
+              "https://github-readme-streak-stats.herokuapp.com/?user=SiddheshDhatrak&theme=tokyonight&hide_border=true" || true
           fi
 
       - name: Validate SVG files
@@ -74,7 +69,8 @@ jobs:
           echo "=== Validating SVG files ==="
           for file in stats/github-stats.svg stats/top-languages.svg stats/github-streak.svg; do
             if [ -f "$file" ] && head -c 100 "$file" | grep -q '<svg'; then
-              echo "✅ $file is valid ($(wc -c < "$file") bytes)"
+              size=$(wc -c < "$file")
+              echo "✅ $file is valid ($size bytes)"
             else
               echo "❌ $file is missing or invalid"
             fi

@@ -29,23 +29,29 @@ jobs:
       - name: Create stats directory
         run: mkdir -p stats
 
-      # Generate GitHub Stats card using the dedicated action (uses GITHUB_TOKEN, no external API)
-      - name: Generate GitHub Stats card
-        uses: stats-organization/github-readme-stats-action@v2
-        with:
-          card: stats
-          options: username=SiddheshDhatrak&show_icons=true&theme=tokyonight&hide_border=true
-          path: stats/github-stats.svg
-          token: ${{ secrets.GITHUB_TOKEN }}
+      # Fetch GitHub Stats SVG
+      - name: Fetch GitHub Stats SVG
+        run: |
+          curl -s -o temp-stats.svg "https://github-readme-stats.vercel.app/api?username=SiddheshDhatrak&show_icons=true&theme=tokyonight&hide_border=true"
+          if grep -q "Something went wrong" temp-stats.svg || ! grep -q "<svg" temp-stats.svg; then
+            echo "::warning::GitHub Stats API returned an error or invalid SVG. Keeping existing file."
+          else
+            mv temp-stats.svg stats/github-stats.svg
+            echo "✅ Successfully fetched new GitHub Stats"
+          fi
+          rm -f temp-stats.svg
 
-      # Generate Top Languages card
-      - name: Generate Top Languages card
-        uses: stats-organization/github-readme-stats-action@v2
-        with:
-          card: top-langs
-          options: username=SiddheshDhatrak&layout=compact&theme=tokyonight&hide_border=true
-          path: stats/top-languages.svg
-          token: ${{ secrets.GITHUB_TOKEN }}
+      # Fetch Top Languages SVG
+      - name: Fetch Top Languages SVG
+        run: |
+          curl -s -o temp-langs.svg "https://github-readme-stats.vercel.app/api/top-langs/?username=SiddheshDhatrak&layout=compact&theme=tokyonight&hide_border=true"
+          if grep -q "Something went wrong" temp-langs.svg || ! grep -q "<svg" temp-langs.svg; then
+            echo "::warning::Top Languages API returned an error or invalid SVG. Keeping existing file."
+          else
+            mv temp-langs.svg stats/top-languages.svg
+            echo "✅ Successfully fetched new Top Languages"
+          fi
+          rm -f temp-langs.svg
 
       # Generate GitHub Streak SVG
       - name: Generate GitHub Streak SVG

@@ -26,32 +26,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Create stats directory
-        run: mkdir -p stats
 
-      # Fetch GitHub Stats SVG
-      - name: Fetch GitHub Stats SVG
-        run: |
-          curl -s -o temp-stats.svg "https://github-readme-stats.vercel.app/api?username=SiddheshDhatrak&show_icons=true&theme=tokyonight&hide_border=true"
-          if grep -q "Something went wrong" temp-stats.svg || ! grep -q "<svg" temp-stats.svg; then
-            echo "::warning::GitHub Stats API returned an error or invalid SVG. Keeping existing file."
-          else
-            mv temp-stats.svg stats/github-stats.svg
-            echo "✅ Successfully fetched new GitHub Stats"
-          fi
-          rm -f temp-stats.svg
-
-      # Fetch Top Languages SVG
-      - name: Fetch Top Languages SVG
-        run: |
-          curl -s -o temp-langs.svg "https://github-readme-stats.vercel.app/api/top-langs/?username=SiddheshDhatrak&layout=compact&theme=tokyonight&hide_border=true"
-          if grep -q "Something went wrong" temp-langs.svg || ! grep -q "<svg" temp-langs.svg; then
-            echo "::warning::Top Languages API returned an error or invalid SVG. Keeping existing file."
-          else
-            mv temp-langs.svg stats/top-languages.svg
-            echo "✅ Successfully fetched new Top Languages"
-          fi
-          rm -f temp-langs.svg
 
       # Generate GitHub Streak SVG
       - name: Generate GitHub Streak SVG
@@ -64,7 +39,7 @@ jobs:
       - name: Validate SVG files
         run: |
           echo "=== Validating SVG files ==="
-          for file in stats/github-stats.svg stats/top-languages.svg stats/github-streak.svg; do
+          for file in stats/github-streak.svg; do
             if [ -f "$file" ] && head -c 100 "$file" | grep -q '<svg'; then
               size=$(wc -c < "$file")
               echo "✅ $file is valid ($size bytes)"

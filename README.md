@@ -72,12 +72,7 @@
 ### 📊 GitHub Stats & Rankings
 
 <div align="center">
-  <img src="stats/github-stats.svg" alt="GitHub Stats" width="48%" />
-  <img src="stats/github-streak.svg" alt="GitHub Streak" width="48%" />
-</div>
-<br/>
-<div align="center">
-  <img src="stats/top-languages.svg" alt="Top Languages" width="48%" />
+  <img src="stats/github-streak.svg" alt="GitHub Streak" />
 </div>
 
 <br/>

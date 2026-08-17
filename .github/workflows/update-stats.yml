@@ -47,22 +47,13 @@ jobs:
           path: stats/top-languages.svg
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      # Fetch GitHub Streak SVG (streak-stats doesn't have a native action, use curl with retries)
-      - name: Fetch GitHub Streak SVG
-        run: |
-          for i in 1 2 3 4 5; do
-            curl -s -f -o stats/github-streak.svg \
-              "https://streak-stats.demolab.com/?user=SiddheshDhatrak&theme=tokyonight&hide_border=true" \
-              && break
-            echo "Attempt $i failed, retrying in 15s..."
-            sleep 15
-          done
-          # Check if we got a valid streak SVG (not an error page)
-          if head -c 500 stats/github-streak.svg | grep -q 'Failed to retrieve'; then
-            echo "::warning::Streak SVG contains an error message, trying alternate URL..."
-            curl -s -f -o stats/github-streak.svg \
-              "https://github-readme-streak-stats.herokuapp.com/?user=SiddheshDhatrak&theme=tokyonight&hide_border=true" || true
-          fi
+      # Generate GitHub Streak SVG
+      - name: Generate GitHub Streak SVG
+        uses: DenverCoder1/github-readme-streak-stats@main
+        with:
+          options: user=SiddheshDhatrak&theme=tokyonight&hide_border=true
+          path: stats/github-streak.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Validate SVG files
         run: |
